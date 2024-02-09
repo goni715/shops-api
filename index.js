@@ -21,14 +21,28 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const dbConnect = require("./src/utility/dbConnect");
 
-
 //Security Middleware Implementation
 app.use(morgan("dev"));
 app.use(cors())
+//cors configuration
+// app.use(cors({
+//   origin: ['http://localhost:5173', /*'https://shops-admin.netlify.app'*/]
+// }));
 app.use(helmet())
 app.use(mongoSanitize())
 app.use(hpp())
-app.use(cors())
+
+
+// Middleware to block requests from Postman
+// app.use((req, res, next) => {
+//     // Check if request is coming from Postman
+//     if (req.get('user-agent').includes('Postman')) {
+//         return res.status(403).json({ error: 'Access forbidden from Postman' });
+//     }
+//     // If not from Postman, proceed with next middleware
+//     next();
+// });
+
 
 //RequestBodySizeIncrease//Body Parser Implementation
 app.use(bodyParser.json({limit: '30mb', extended: true}));
