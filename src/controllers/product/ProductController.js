@@ -1,9 +1,9 @@
 const ProductModel = require("../../models/product/ProductModel");
-const GetAllService = require("../../services/common/GetAllService");
 const CreateProductService = require("../../services/product/CreateProductService");
 const DeleteService = require("../../services/common/DeleteService");
 const UpdateProductService = require("../../services/product/UpdateProductService");
 const GetAllProductsService = require("../../services/product/GetAllProductsService");
+const GetProductService = require("../../services/product/GetProductService");
 
 
 
@@ -16,8 +16,11 @@ exports.UpdateProduct = async (req, res) =>{
 }
 
 exports.GetAllProduct=async(req,res)=>{
-    const projection = {$project: {_id:1, productName:1, price:1, description:1, categoryId:1}}
     await GetAllProductsService(req,res,ProductModel)
+}
+
+exports.GetProduct=async(req,res)=>{
+    await GetProductService(req,res,ProductModel)
 }
 
 exports.DeleteProduct = async (req, res) =>{
