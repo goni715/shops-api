@@ -69,6 +69,9 @@ app.use('/api/user', userRouter);
 app.use('/api/category', categoryRouter);
 app.use('/api/product', productRouter);
 
+app.get('/', (req, res)=>{
+    res.send("<h1>This is Ecommerce Api</h1>");
+})
 
 //Undefined Route
 app.use('*',(req,res)=>{

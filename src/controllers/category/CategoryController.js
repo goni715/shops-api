@@ -1,20 +1,20 @@
-const CategoryModel = require("../../models/category/CategoryModel");
-const CreateService = require("../../services/common/CreateService");
-const UpdateService = require("../../services/common/UpdateService");
-const GetAllService = require("../../services/common/GetAllService");
 const mongoose = require("mongoose");
+const CategoryModel = require("../../models/category/CategoryModel");
+const GetAllService = require("../../services/common/GetAllService");
 const DeleteService = require("../../services/common/DeleteService");
 const CheckAssociateService = require("../../services/common/CheckAssociateService");
 const ProductModel = require("../../models/product/ProductModel");
+const CreateCategoryService = require("../../services/category/CreateCategoryService");
+const UpdateCategoryService = require("../../services/category/UpdateCategoryService");
 
 
 
 exports.CreateCategory = async (req, res) =>{
-    await CreateService(req,res,CategoryModel);
+    await CreateCategoryService(req,res,CategoryModel);
 }
 
 exports.UpdateCategory = async (req, res) =>{
-    await UpdateService(req,res,CategoryModel);
+    await UpdateCategoryService(req,res,CategoryModel);
 }
 
 exports.GetAllCategory=async(req,res)=>{

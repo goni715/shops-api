@@ -7,10 +7,10 @@ const UserCreateService= async (req,res,DataModel) => {
           if(existingEmail.length ===0){
                reqBody.password = await hashedPassword(reqBody.password);//hashedPassword
                let data = await DataModel.create(reqBody)
-               res.status(201).json({message: "success", result:data});
+               res.status(201).json({message: "success", data:data});
           }
           else{
-            res.status(409).json({message: "fail", result:"Email Already Exist"});
+            res.status(409).json({message: "fail", data:"Email Already Exist"});
           }
    }
    catch (error) {
