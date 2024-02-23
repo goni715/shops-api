@@ -30,9 +30,9 @@ const ProductSchema = new mongoose.Schema(
             ref:"categories",
             required: true,
         },
-        image1: {
-            type:String,
-            default: "https://res.cloudinary.com/dwok2hmb7/image/upload/v1689258036/Social-Media/qavacc0ukfh1rqxmwdvv.jpg"
+        image: {
+            public_id: { type: String },
+            image_url: { type: String }
         }
     },
     { timestamps: true, versionKey:false},
