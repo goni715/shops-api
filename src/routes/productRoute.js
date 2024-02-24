@@ -15,7 +15,7 @@ router.delete("/delete-product/:id", AuthVerifyMiddleware, ProductController.Del
 router.put("/delete-product-image/:id", AuthVerifyMiddleware, IsAdmin, ProductController.DeleteProductImage);
 router.get("/get-product/:id", ProductController.GetProduct);
 router.get("/get-all-product", ProductController.GetAllProduct);
-
+router.get("/search-product/:keyword", ProductController.SearchProduct);
 
 
 module.exports=router;

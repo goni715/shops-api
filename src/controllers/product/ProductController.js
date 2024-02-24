@@ -7,6 +7,7 @@ const CreateProductWithImageService = require("../../services/product/CreateProd
 const GetSingleProductService = require("../../services/product/GetSingleProductService");
 const DeleteProductImageService = require("../../services/product/DeleteProductImageService");
 const UpdateProductWithImageService = require("../../services/product/UpdateProductWithImageService");
+const SearchProductService = require("../../services/product/SearchProductService");
 
 
 exports.CreateProduct = async (req, res) =>{
@@ -35,4 +36,8 @@ exports.DeleteProduct = async (req, res) =>{
 
 exports.DeleteProductImage = async (req, res) =>{
     await DeleteProductImageService(req,res,ProductModel);
+}
+
+exports.SearchProduct = async (req, res) =>{
+    await SearchProductService(req,res,ProductModel);
 }
