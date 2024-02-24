@@ -16,7 +16,7 @@ router.put("/delete-product-image/:id", AuthVerifyMiddleware, IsAdmin, ProductCo
 router.get("/get-product/:id", ProductController.GetProduct);
 router.get("/get-all-product", ProductController.GetAllProduct);
 router.get("/search-product/:keyword", ProductController.SearchProduct);
-
+router.get("/get-related-product/:productId/:categoryId", ProductController.GetRelatedProduct);
 
 module.exports=router;
 
