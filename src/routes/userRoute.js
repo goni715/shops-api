@@ -7,7 +7,7 @@ const IsAdmin = require("../middlewares/IsAdmin");
 const router = express.Router();
 
 
-router.get("/get-all-user", AuthVerifyMiddleware, UserController.GetAllUser);
+router.get("/get-all-user", AuthVerifyMiddleware, IsAdmin, UserController.GetAllUser);
 // router.put("/update-user/:id", AuthVerifyMiddleware, UserController.UpdateUser);
 // router.delete("/delete-user/:id", AuthVerifyMiddleware, IsAdmin, UserController.DeleteUser);
 
