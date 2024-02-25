@@ -5,6 +5,7 @@ const authRouter = require('./src/routes/authRoute');
 const userRouter = require('./src/routes/userRoute');
 const categoryRouter = require('./src/routes/categoryRoute');
 const productRouter = require('./src/routes/productRoute');
+const contactRouter = require('./src/routes/contactRoute');
 
 
 
@@ -68,7 +69,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
 app.use('/api/category', categoryRouter);
 app.use('/api/product', productRouter);
-
+app.use('/api/contact', contactRouter);
 app.get('/', (req, res)=>{
     res.send("<h1>This is Ecommerce Api</h1>");
 })

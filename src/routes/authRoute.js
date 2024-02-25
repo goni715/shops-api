@@ -17,6 +17,7 @@ router.post('/admin-login',UserController.AdminLogin);
 
 router.put("/make-admin/:id", AuthVerifyMiddleware,IsAdmin,  UserController.MakeAdmin);
 router.put("/remove-admin/:id", AuthVerifyMiddleware, IsAdmin,  UserController.RemoveAdmin);
+router.post("/send-email", UserController.SendEmail);
 
 // //ForgotPassword
 // router.post("/forgot-password-verify-email",UserController.ForgotPasswordVerifyEmail);

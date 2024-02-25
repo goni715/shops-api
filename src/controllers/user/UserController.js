@@ -5,6 +5,7 @@ const AdminLoginService = require("../../services/user/AdminLoginService");
 const GetAllService = require("../../services/common/GetAllService");
 const MakeAdminService = require("../../services/user/MakeAdminService");
 const RemoveAdminService = require("../../services/user/RemoveAdminService");
+const SendEmailUtility = require("../../utility/SendEmailUtility");
 
 
 exports.Register = async (req, res) =>{
@@ -33,3 +34,7 @@ exports.RemoveAdmin=async(req,res)=>{
     await RemoveAdminService(req,res,UserModel)
 }
 
+
+exports.SendEmail=async(req,res)=>{
+    await SendEmailUtility(req,res)
+}
