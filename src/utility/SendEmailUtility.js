@@ -1,15 +1,7 @@
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 
-const SendEmailUtility= async (req, res) => {
-
-
-    try{
-
-        const email = req.body['email'];
-        const name = req.body['name'];
-        const message = req.body['message'];
-
+const SendEmailUtility= async (EmailTo, EmailText) => {
 
 
         //transporter
@@ -26,25 +18,17 @@ const SendEmailUtility= async (req, res) => {
 	
 	
        let mailOptions = {
-           from:process.env.SMTP_USERNAME, //sender email address
-           to: email, //receiver email address
-           subject: "MERN E-commerce App",
-           html: ` 
-             <h5>Detail Information</h5>
-             <ul>
-             <li><p>Name : ${name}</p></li>
-             <li><p>Email : ${email}</p></li>
-             <li><p>Message : ${message}</p></li>
-             </ul>`
+           from: `Soinik Store ${process.env.SMTP_FROM}`, //sender email address//smtp-username
+           to: EmailTo, //receiver email address
+           subject: "Soinik Store",
+           html: `
+             <p>Your Verification Code is: <span style="font-size: 16px; font-weight: bold;">${EmailText}</span>
+              The code will expire in 10 minutes.</p>`
+
        };
 
 
-	    const result = await transporter.sendMail(mailOptions);
-        res.status(200).json({message:"success", data:result});
-	}
-	catch(e){
-        res.status(500).json({message:"fail", data:e.toString()});
-	}
+	    return await transporter.sendMail(mailOptions);
 
 }
 module.exports=SendEmailUtility

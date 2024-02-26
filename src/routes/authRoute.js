@@ -20,9 +20,9 @@ router.put("/remove-admin/:id", AuthVerifyMiddleware, IsAdmin,  UserController.R
 router.post("/send-email", UserController.SendEmail);
 
 // //ForgotPassword
-// router.post("/forgot-password-verify-email",UserController.ForgotPasswordVerifyEmail);
-// router.get("/forgot-password-verify-otp/:email/:otp",UserController.ForgotPasswordVerifyOTP);
-// router.post("/create-new-password",UserController.CreateNewPassword);
+router.post("/forgot-password-verify-email",UserController.ForgotPasswordVerifyEmail);
+router.post("/forgot-password-verify-otp",UserController.ForgotPasswordVerifyOtp);
+router.post("/create-new-password",UserController.CreateNewPassword);
 //
 //
 //

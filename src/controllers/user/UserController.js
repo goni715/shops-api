@@ -6,6 +6,9 @@ const GetAllService = require("../../services/common/GetAllService");
 const MakeAdminService = require("../../services/user/MakeAdminService");
 const RemoveAdminService = require("../../services/user/RemoveAdminService");
 const SendEmailUtility = require("../../utility/SendEmailUtility");
+const ForgotPasswordVerifyEmailService = require("../../services/ForgotPassword/ForgotPasswordVerifyEmailService");
+const ForgotPasswordVerifyOtpService = require("../../services/ForgotPassword/ForgotPasswordVerifyOtpService");
+const CreateNewPasswordService = require("../../services/ForgotPassword/CreateNewPasswordService");
 
 
 exports.Register = async (req, res) =>{
@@ -34,7 +37,23 @@ exports.RemoveAdmin=async(req,res)=>{
     await RemoveAdminService(req,res,UserModel)
 }
 
-
 exports.SendEmail=async(req,res)=>{
     await SendEmailUtility(req,res)
 }
+
+
+//Step-01// Send OTP
+exports.ForgotPasswordVerifyEmail=async (req,res)=>{
+    await ForgotPasswordVerifyEmailService(req,res,UserModel)
+}
+
+//Step-02// Verify OTP
+exports.ForgotPasswordVerifyOtp=async (req,res)=>{
+    await ForgotPasswordVerifyOtpService(req,res);
+}
+
+//Step-03
+exports.CreateNewPassword=async (req,res)=>{
+    await CreateNewPasswordService(req,res)
+}
+
