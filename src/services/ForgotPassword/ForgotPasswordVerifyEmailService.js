@@ -17,7 +17,7 @@ const ForgotPasswordVerifyEmailService = async (req,res, UserModel) => {
 
             // Email Send
             let SendEmail = await SendEmailUtility(email,OtpCode)
-            res.status(200).json({message: "success", data: SendEmail});
+            res.status(200).json({message: "success", data: "We have sent you a 6 digit verification code"});
         }
         else{
             res.status(404).json({message: "fail", data:"Could not Find this Email!"});
